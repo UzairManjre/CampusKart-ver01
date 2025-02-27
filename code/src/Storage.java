@@ -1,6 +1,8 @@
 package code.src;
 
 
+import code.exceptions.ProductNotFoundException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class Storage {
     // Add a product
     public static void addProduct(Product product) {
         products.add(product);
+        product.addProduct();
     }
 
     // Retrieve a product by ID
@@ -92,4 +95,25 @@ public class Storage {
         addProduct(product1);
         addProduct(product2);
     }
-}
+
+    public static void removeProduct(int productId) {
+
+            try {
+                Product product = getProductById(productId);
+                if (product == null) {
+                    throw new ProductNotFoundException("Product with ID " + productId + " not found!");
+                }
+
+                // Remove product from storage
+                products.remove(product);
+                System.out.println("Product '" + product.getProductName() + "' has been removed from storage.");
+
+            } catch (ProductNotFoundException e) {
+                System.out.println(e.getMessage());
+            } catch (Exception e) {
+                System.out.println("An unexpected error occurred: " + e.getMessage());
+            }
+        }
+
+    }
+

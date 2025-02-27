@@ -46,7 +46,7 @@ public class Transaction {
         if (user instanceof Moderator) {  // Now valid check
             return new ArrayList<>(transactionList);
         }
-        throw new UnauthorizedActionException("Only moderators can view all transactions.");
+        throw new UnauthorizedActionException("Unauthorized action! You do not have the required permissions to perform this action.");
     }
 
 
