@@ -14,6 +14,7 @@ public class Product extends ProductDetails implements ProductAction {
     @Override
     public void addProduct() {
         System.out.println("Product added: " + productName);
+
     }
 
 
@@ -53,5 +54,9 @@ public class Product extends ProductDetails implements ProductAction {
 
     public Student getSeller() {
         return seller;
+    }
+
+    public void setQuantity(int i) {
+        this.quantity = i;
     }
 }
