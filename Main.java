@@ -131,13 +131,15 @@ public class Main {
     private static void viewProducts() {
         List<Product> products = Storage.getAllProducts();
         System.out.println("\nAvailable Products:");
+        System.out.println("productId \t productName \t productPrice \t productQuantity");
         for (Product p : products) {
-            System.out.println(p.getProductId() + ". " + p.getProductName() + " - " + p.getPrice());
+
+            System.out.println(p.getProductId() + ". " + p.getProductName() + " - " + p.getPrice()+ " - " + p.getQuantity());
         }
     }
 
     private static void buyProduct() {
-        System.out.print("Enter Product ID to buy: ");
+        System.out.print("Enter Product id to buy: ");
         int productId = scanner.nextInt();
         scanner.nextLine();
 
